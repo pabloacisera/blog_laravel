@@ -9,7 +9,13 @@ Route::view('/contact', 'contact')->name('contact');
 
 Route::view('/about', 'about')->name('about');
 
-Route::view('/blog', 'blog')->name('blog');
+$posts = [
+    ["title"=>"primer post", "content"=>"Este es el contenido del primer post"],
+    ["title"=>"segundo post", "content"=>"Este es el contenido del segundo post"],
+    ["title"=>"tercer post", "content"=>"Este es el contenido del tercer post"],
+];
+
+Route::view('/blog', 'blog', ['posts'=>$posts])->name('blog');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
